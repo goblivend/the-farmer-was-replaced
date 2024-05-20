@@ -1,8 +1,7 @@
 def measure_grid() :
-	size = get_world_size()
-	grid = make_grid(size, size)
-	for x in range(size) :
-		for y in range(size) :
+	grid = make_grid(get_world_size(), get_world_size())
+	for x in range(get_world_size()) :
+		for y in range(get_world_size()) :
 			grid[y][x] = measure()
 			move(North)
 		move(East)

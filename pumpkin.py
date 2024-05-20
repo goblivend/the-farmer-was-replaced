@@ -1,8 +1,6 @@
 def setup_pumpkin():
-	size = get_world_size()
-	goxy(0, 0)
-	for x in range(size) :
-		for y in range(size) :
+	for x in range(get_world_size()) :
+		for y in range(get_world_size()) :
 			if get_entity_type() != Entities.Pumpkin :
 				grow()
 				if can_harvest() :
@@ -15,11 +13,10 @@ def setup_pumpkin():
 		move(East)
 
 def harvest_pumpkin():
-	size = get_world_size()
 	setup_pumpkin()
 	missings = []
-	for x in range(size) :
-		for y in range(size) :
+	for x in range(get_world_size()) :
+		for y in range(get_world_size()) :
 			if get_entity_type() != Entities.Pumpkin :
 				missings.append((x, y))
 				water()
@@ -52,4 +49,3 @@ def harvest_pumpkin():
 		missings = new
 
 	harvest()
-	goxy(0, 0)

@@ -4,8 +4,8 @@ def treasure() :
 	harvest()
 	while get_entity_type() != Entities.Hedge and get_entity_type() != Entities.Treasure:
 		plant(Entities.Bush)
+		water()
 		while not can_harvest() :
-			water()
 			buy_item(Items.Fertilizer)
 			use_item(Items.Fertilizer)
 		while get_entity_type() == Entities.Bush :

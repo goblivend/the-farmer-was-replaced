@@ -1,7 +1,6 @@
 def harvest_all() :
-	size = get_world_size()
-	for x in range(size) :
-		for y in range(size) :
+	for x in range(get_world_size()) :
+		for y in range(get_world_size()) :
 			if can_harvest() :
 				harvest()
 			move(North)

@@ -36,20 +36,19 @@ def setup_sunflower(size):
 	return (grid, maxx, maxy)
 
 def harvest_sunflower(n):
-	size = get_world_size()
-	grid, maxx, maxy= setup_sunflower(size)
+	grid, maxx, maxy= setup_sunflower(get_world_size())
 
 	while num_items(Items.Power) < n :
 		goxy(maxx, maxy)
 		harvest()
 		buy_item(Items.Sunflower_Seed)
-		if num_items(Items.Sunflower_Seed) < size * size :
+		if num_items(Items.Sunflower_Seed) < get_world_size() * get_world_size() :
 			return
 		plant(Entities.Sunflower)
 		grow()
 		grid[maxy][maxx] = measure()
-		for x in range(size) :
-			for y in range(size) :
+		for x in range(get_world_size()) :
+			for y in range(get_world_size()) :
 				if grid[y][x] > grid[maxy][maxx] :
 					maxx = x
 					maxy = y

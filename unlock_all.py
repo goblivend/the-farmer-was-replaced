@@ -1,12 +1,11 @@
 def handle_expand():
-	size = get_world_size()
-	goxy(0, size - 1)
-	for i in range(size) :
+	goxy(0, get_world_size() - 1)
+	for i in range(get_world_size()) :
 		till()
 		move(East)
 	move(West)
 	move(South)
-	for i in range(size-1) :
+	for i in range(get_world_size()) :
 		till()
 		move(South)
 	move(East)
@@ -48,10 +47,11 @@ def unlock_all():
 	for u in upgrade_unlocks :
 		if u == Unlocks.Mazes and num_items(Items.Gold) > 10000 :
 			continue
-		if needs_too_much(u) :
-			continue
-		if unlock(u) :
-			if u == Unlocks.Expand :
-				size = num_unlocked(u)+1
-				if num_unlocked(Unlocks.Expand) > 2 :
-					handle_expand()
+		#if needs_too_much(u) :
+		#	continue
+		unlock(u)
+		#if unlock(u) :
+			#if u == Unlocks.Expand :
+				#size = num_unlocked(u)+1
+				#if num_unlocked(Unlocks.Expand) > 2 :
+				#	handle_expand()
