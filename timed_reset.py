@@ -1,0 +1,2 @@
+timed_reset()
+main()
