@@ -1,4 +1,5 @@
 def goxy(x, y):
+	size = get_world_size()
 	dirs = [North, East, South, West]
 	n = get_pos_x() - x
 	if n < 0 :

@@ -1,4 +1,5 @@
 def setup_pumpkin():
+	size = get_world_size()
 	goxy(0, 0)
 	for x in range(size) :
 		for y in range(size) :
@@ -14,6 +15,7 @@ def setup_pumpkin():
 		move(East)
 
 def harvest_pumpkin():
+	size = get_world_size()
 	setup_pumpkin()
 	missings = []
 	for x in range(size) :

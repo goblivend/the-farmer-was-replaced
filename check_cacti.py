@@ -1,4 +1,5 @@
 def check_cacti() :
+    size = get_world_size()
 	goxy(0, 0)
 	grid = measure_grid()
 	for x in range(size) :

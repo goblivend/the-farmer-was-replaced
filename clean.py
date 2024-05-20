@@ -1,4 +1,5 @@
 def clean():
+	size = get_world_size()
 	goxy(0, 0)
 	for x in range(size) :
 		for y in range(size) :

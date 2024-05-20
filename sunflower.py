@@ -36,6 +36,7 @@ def setup_sunflower(size):
 	return (grid, maxx, maxy)
 
 def harvest_sunflower(n):
+	size = get_world_size()
 	grid, maxx, maxy= setup_sunflower(size)
 
 	while num_items(Items.Power) < n :

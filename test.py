@@ -1,9 +1,9 @@
-#size = get_world_size()
+
 #goxy(0, 0)
 #harvest_pumpkin()
 #unlock_all()
 #harvest()
-size = get_world_size()#treasure()
+#treasure()
 clear()
 op = get_op_count()
 harvest_cactus()

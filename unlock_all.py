@@ -1,4 +1,5 @@
 def handle_expand():
+	size = get_world_size()
 	goxy(0, size - 1)
 	for i in range(size) :
 		till()
@@ -35,26 +36,22 @@ def unlock_all():
 		Unlocks.Mazes
 	]
 	single_unlocks = [
-		Unlocks.Loops,
 		Unlocks.Plant,
-		Unlocks.Senses,
-		Unlocks.Watering,
 		Unlocks.Fertilizer,
-		Unlocks.Multi_Trade,
 		#Unlocks.Polyculture,
 		Unlocks.Leaderboard
 	]
 	for u in single_unlocks :
 		if num_unlocked(u) == 0:
-			if unlock(u) :
-				
-				if u == Unlocks.Reset :
-					reset()
+			if unlock(u) and u == Unlocks.Leaderboard :
+				timed_reset()
 	for u in upgrade_unlocks :
 		if u == Unlocks.Mazes and num_items(Items.Gold) > 10000 :
 			continue
 		if needs_too_much(u) :
 			continue
 		if unlock(u) :
-			if u == Unlocks.Expand and num_unlocked(Unlocks.Expand) > 2 :
-				handle_expand()
+			if u == Unlocks.Expand :
+				size = num_unlocked(u)+1
+				if num_unlocked(Unlocks.Expand) > 2 :
+					handle_expand()

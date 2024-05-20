@@ -1,10 +1,12 @@
 def setup_cactus() :
+    size = get_world_size()
 	for x in range(size) :
 		for y in range(size) :
 			grow()
 			if get_entity_type() != Entities.Cactus :
 				harvest()
-			if not buy_item(Items.Cactus_Seed) :
+			buy_item(Items.Cactus_Seed)
+			if num_items(Items.Cactus_Seed) == 0 :
 				quick_print("Poor")
 				return False
 			if get_ground_type() != Grounds.Soil :
@@ -29,7 +31,7 @@ def new_harvest(grid, not_sorted) :
 			swap(South)
 			not_sorted.add((x, y-1))
 			grid[y][x], grid[y-1][x] = grid[y-1][x], grid[y][x]
-		
+
 		while x > 0 and grid[y][x] < grid[y][x-1] :
 			swap(West)
 			not_sorted.add((x, y))
@@ -37,6 +39,7 @@ def new_harvest(grid, not_sorted) :
 			grid[y][x], grid[y][x-1] = grid[y][x-1], grid[y][x]
 
 def harvest_cactus() :
+    size = get_world_size()
 	goxy(0, 0)
 	if not setup_cactus() :
 		return
@@ -48,6 +51,5 @@ def harvest_cactus() :
 
 	new_harvest(grid, not_sorted)
 	harvest()
-	
-size = get_world_size()
+
 harvest_cactus()
